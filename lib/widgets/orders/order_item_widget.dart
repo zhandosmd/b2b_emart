@@ -9,52 +9,42 @@ class OrderItemWidget extends StatelessWidget {
       color: Colors.transparent,
       elevation: 5,
       child: Container(
+        height: 200,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(12)),
             color: Colors.white
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text('Заказ #242795'),
-                  Text('Время заказа 22:00'),
-                ],
-              ),
-              const SizedBox(height: 10,),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Expanded(child: Text('Улица Сауран, д. 15/4, кв 12, этаж 2, домофон 12')),
-                  Text('1 товар'),
-                ],
-              ),
-              const SizedBox(height: 10,),
-              const Text('Курьер: Карасев Данил'),
-              const SizedBox(height: 10,),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Image.asset('assets/images/ic_order_bicycle.png', height: 20, width: 20,),
+                  const SizedBox(width: 10,),
                   Container(
-                    height: 25,
-                    width: 120,
+                    height: 28,
                     decoration: const BoxDecoration(
-                        color: Color.fromRGBO(181, 227, 76, 1),
-                        borderRadius: BorderRadius.all(Radius.circular(5))
+                      color: Color.fromRGBO(24, 170, 19, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(8))
                     ),
-                    child: const Center(child: Text('Доставить сейчас', style: TextStyle(fontSize: 12),)),
-                  ),
-                  const Text('158.4 T'),
+                    child: const Center(child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Text('Доставить: сегодня 16:00 — 18:00', style: TextStyle(fontSize: 13, color: Colors.white),),
+                    )),
+                  )
                 ],
               ),
+              const SizedBox(height: 12,),
+              Row(
+                children: const [
+                  Expanded(child: Text('Заказ №242795', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),)),
+                  Text('158 ₸', style: TextStyle(fontSize: 13),)
+                ],
+              ),
+              const SizedBox(height: 2,),
             ],
-          ),
+          )
         ),
       ),
     );

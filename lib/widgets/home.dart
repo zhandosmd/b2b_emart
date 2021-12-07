@@ -1,3 +1,4 @@
+import 'package:emart/widgets/common_widgets/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'orders/orders_widget.dart';
@@ -15,9 +16,9 @@ class _HomePageState extends State<HomePage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     OrdersWidget(),
-    Text('Index 1: Home', style: optionStyle,),
-    Text('Index 2: Business', style: optionStyle,),
-    Text('Index 3: School', style: optionStyle,),
+    Text('', style: optionStyle,),
+    Text('', style: optionStyle,),
+    Text('', style: optionStyle,),
   ];
 
   void _onItemTapped(int index) {
@@ -28,31 +29,38 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(child: _widgetOptions.elementAt(_selectedIndex)),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-        unselectedItemColor: Colors.black,
-        unselectedLabelStyle: const TextStyle(color: Colors.grey),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Заказы',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.format_list_bulleted),
-            label: 'Наличие',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Поставки',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Профиль',
-          ),
-        ],
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          selectedItemColor: AppColors.main,
+          onTap: _onItemTapped,
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          unselectedItemColor: Colors.black,
+          unselectedLabelStyle: const TextStyle(color: Colors.grey),
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/ic_orders.png', height: 24, width: 24,),
+              activeIcon: Image.asset('assets/images/ic_orders.png', height: 24, width: 24, color: AppColors.main,),
+              label: 'Заказы',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/ic_form.png', height: 24, width: 24,),
+              activeIcon: Image.asset('assets/images/ic_form.png', height: 24, width: 24, color: AppColors.main,),
+              label: 'Наличие',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/ic_profile.png', height: 24, width: 24,),
+              activeIcon: Image.asset('assets/images/ic_profile.png', height: 24, width: 24, color: AppColors.main,),
+              label: 'Поставки',
+            ),
+          ],
+        ),
       ),
     );
   }
